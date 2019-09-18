@@ -23,6 +23,16 @@ server:
   #     memory: 256Mi
   #     cpu: 250m
 
+  # Ingress settings
+  ingress:
+    enabled: false
+    annotations: {}
+    hosts:
+      - host: example.com
+        paths: []
+
+    tls: []
+
   # authDelegator enables a cluster role binding to be attached to the service
   # account.  This cluster role binding can be used to setup Kubernetes auth
   # method.  https://www.vaultproject.io/docs/auth/kubernetes.html
@@ -222,7 +232,7 @@ ui:
   # serviceType can be used to control the type of service created. For
   # example, setting this to "LoadBalancer" will create an external load
   # balancer (for supported K8S installations) to access the UI.
-  enabled: false
+  enabled: true
   serviceType: "ClusterIP"
   serviceNodePort: null
   externalPort: 8200
