@@ -182,6 +182,7 @@ storage might be desired by the user.
       {{- if and (eq (.Values.server.dataStorage.enabled | toString) "true") (eq .mode "standalone") }}
     - metadata:
         name: data
+        annotations: {{- toYaml .Values.server.dataStorage.annotations | nindent 10 }}
       spec:
         accessModes:
           - {{ .Values.server.dataStorage.accessMode | default "ReadWriteOnce" }}
